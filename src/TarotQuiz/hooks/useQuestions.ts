@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import { CARDS, QUESTIONS } from "../resource/index";
+import { useRef, useState } from 'react';
+import { CARDS, QUESTIONS } from '../resource/index';
 
 type OriginalQuestion = {
   set: string;
@@ -14,7 +14,7 @@ type SplitQuestion = {
 
 const shuffleArray = <T>(array: T[]): T[] => {
   return array
-    .map((value) => ({ value, sort: Math.random() }))
+    .map(value => ({ value, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value);
 };
@@ -26,16 +26,13 @@ const getRandomVariation = (variations: string[]): [string, string[]] => {
   return [selected, remaining];
 };
 
-const generateSets = (
-  variations: string[],
-  cards: string[]
-): [SplitQuestion, SplitQuestion] => {
+const generateSets = (variations: string[], cards: string[]): [SplitQuestion, SplitQuestion] => {
   const [variation1, remainingVariations] = getRandomVariation(variations);
   const [variation2] = getRandomVariation(remainingVariations);
 
   return [
     { question: variation1, cards },
-    { question: variation2, cards }
+    { question: variation2, cards },
   ];
 };
 
@@ -46,13 +43,10 @@ const splitAndRandomizeQuestions = (
 
   const [set1, set2] = shuffledQuestions.reduce(
     ([set1, set2]: [SplitQuestion[], SplitQuestion[]], question) => {
-      const [split1, split2] = generateSets(
-        question.variations,
-        question.cards
-      );
+      const [split1, split2] = generateSets(question.variations, question.cards);
       return [
         [...set1, split1],
-        [...set2, split2]
+        [...set2, split2],
       ];
     },
     [[], []]
@@ -64,9 +58,7 @@ type CardScores = { [key: string]: number };
 
 function getHighestScoringCards(scores: CardScores): string[] {
   const maxScore = Math.max(...Object.values(scores));
-  const highestScoringCards = Object.keys(scores).filter(
-    (card) => scores[card] === maxScore
-  );
+  const highestScoringCards = Object.keys(scores).filter(card => scores[card] === maxScore);
   return highestScoringCards;
 }
 
@@ -99,7 +91,7 @@ function* quizDispenser(
   const cardScores: CardScores = {};
 
   const handleAnswer = (answer: number, cards: string[]) => {
-    cards.forEach((card) => {
+    cards.forEach(card => {
       cardScores[card] = (cardScores[card] || 0) + answer;
     });
   };
@@ -107,7 +99,7 @@ function* quizDispenser(
   for (const { question, cards } of set1) {
     const _answer: number = yield {
       question,
-      handleAnswer: (answer: number) => handleAnswer(answer, cards)
+      handleAnswer: (answer: number) => handleAnswer(answer, cards),
     };
   }
 
@@ -118,7 +110,7 @@ function* quizDispenser(
   for (const { question, cards } of set2Filtered) {
     const _answer: number = yield {
       question,
-      handleAnswer: (answer: number) => handleAnswer(answer, cards)
+      handleAnswer: (answer: number) => handleAnswer(answer, cards),
     };
   }
 
@@ -130,7 +122,7 @@ export const useQuestions = (
 ): [string, (answer: number) => void] => {
   const questionsIterator = useRef(quizDispenser(QUESTIONS)).current;
   const [currentQuestion, setCurrentQuestion] = useState<QuizIteration | string[]>(
-    () => (questionsIterator.next().value)
+    () => questionsIterator.next().value
   );
 
   const nextQuestion = () => {
@@ -146,10 +138,9 @@ export const useQuestions = (
   const answerQuestion = (answer: number) => {
     if ('handleAnswer' in currentQuestion) {
       currentQuestion.handleAnswer(answer);
-    } 
+    }
     nextQuestion();
   };
 
-
-  return [((currentQuestion as unknown) as QuizIteration).question, answerQuestion];
+  return [(currentQuestion as unknown as QuizIteration).question, answerQuestion];
 };
