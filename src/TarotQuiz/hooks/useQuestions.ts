@@ -105,6 +105,7 @@ function* quizDispenser(
   };
 
   for (const { question, cards } of set1) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const _answer: number = yield {
       question,
       handleAnswer: (answer: number) => handleAnswer(answer, cards)
@@ -116,6 +117,7 @@ function* quizDispenser(
   const set2Filtered = set2.filter(({ cards }) => cards.some(checkForCard));
 
   for (const { question, cards } of set2Filtered) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const _answer: number = yield {
       question,
       handleAnswer: (answer: number) => handleAnswer(answer, cards)
@@ -129,8 +131,8 @@ export const useQuestions = (
   complete: (result: string[]) => void
 ): [string, (answer: number) => void] => {
   const questionsIterator = useRef(quizDispenser(QUESTIONS)).current;
-  const [currentQuestion, setCurrentQuestion] = useState(
-    () => questionsIterator.next().value as QuizIteration
+  const [currentQuestion, setCurrentQuestion] = useState<QuizIteration | string[]>(
+    () => (questionsIterator.next().value)
   );
 
   const nextQuestion = () => {
@@ -144,7 +146,9 @@ export const useQuestions = (
   };
 
   const answerQuestion = (answer: number) => {
-    currentQuestion.handleAnswer(answer);
+    if ('handleAnswer' in currentQuestion) {
+      currentQuestion.handleAnswer(answer);
+    } 
     nextQuestion();
   };
 
