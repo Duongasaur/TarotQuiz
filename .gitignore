@@ -1,4 +1,5 @@
 node_modules
+build
 id_ed25519_personal
 id_ed25519_personal.pub
 .env.local
