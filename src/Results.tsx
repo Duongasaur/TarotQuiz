@@ -1,5 +1,5 @@
 import { useParams, Navigate } from "react-router-dom";
-import { CARDS, RESULTS } from "./TarotQuiz/resource/index";
+import { CARDS, Result, RESULTS } from "./TarotQuiz/resource/index";
 import QuizResult from "./TarotQuiz/QuizResult";
 import Glass from "./glass/index";
 import styled from "styled-components";
@@ -12,7 +12,7 @@ const MainResults = styled.main`
 const allCards: string[] = Object.values(CARDS);
 
 const Results = () => {
-  const { cards } = useParams<{ cards: string }>();
+  const { cards = "" } = useParams<{ cards: string }>();
 
   const results: string[] = cards
     .replace(/_/g, " ")
@@ -27,7 +27,7 @@ const Results = () => {
     <MainResults>
       {results.map((cardIn) => (
         <Glass key={cardIn}>
-          <QuizResult result={RESULTS.find(({ card }) => card === cardIn)} />
+          <QuizResult result={RESULTS.find(({ card }) => card === cardIn) as Result} />
         </Glass>
       ))}
     </MainResults>

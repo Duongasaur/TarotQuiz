@@ -34,7 +34,7 @@ const MoonShape = styled.div`
   animation: ${glowing} 1.6s linear infinite alternate;
 `;
 
-const Crater = styled.div<{ size: number; top: number; left: number }>`
+const Crater = styled.div<{ size: number, top: number, left: number }>`
   background-color: #bbb;
   opacity: 0.5;
   position: absolute;

@@ -9,8 +9,8 @@ const Section = styled.section`
 
 const Links = [
   { href: "", title: "facebook", Icon: FacebookIcon },
-  { href: "", title: "instagram", icon: InstagramIcon },
-  { href: "", title: "pinterest", icon: PinterestIcon }
+  { href: "", title: "instagram", Icon: InstagramIcon },
+  { href: "", title: "pinterest", Icon: PinterestIcon }
 ];
 
 const Socials = () => {
