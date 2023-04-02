@@ -1,5 +1,5 @@
 {
-  "include": ["./src/**/*"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/global.d.ts"],
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true,
