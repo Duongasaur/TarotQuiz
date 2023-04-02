@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import TarotQuiz from "./TarotQuiz";
+import React from 'react';
+import styled from 'styled-components';
+import TarotQuiz from './TarotQuiz';
 
 const Button = styled.button`
   align-items: center;
@@ -14,9 +14,9 @@ const Button = styled.button`
   cursor: pointer;
   display: inline-flex;
   flex-direction: column;
-  font-family: expo-brand-demi, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: expo-brand-demi, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
   font-size: 18px;
   height: 52px;
   width: 360px;
@@ -57,8 +57,7 @@ const Heading = styled.h1`
   font-size: 36px;
   margin-bottom: 0;
   color: #c1b0ff;
-  text-shadow: -1px -1px 0 #674dc4, 1px -1px 0 #674dc4, -1px 1px 0 #674dc4,
-    1px 1px 0 #674dc4;
+  text-shadow: -1px -1px 0 #674dc4, 1px -1px 0 #674dc4, -1px 1px 0 #674dc4, 1px 1px 0 #674dc4;
 `;
 
 const SubHeading = styled.div`
@@ -81,7 +80,7 @@ const Logo = styled.img`
 `;
 
 const Header = styled.header`
-  margin-top: 30%;
+  margin-top: 30vh;
   min-height: 100vh;
 `;
 
@@ -89,8 +88,8 @@ const Landing: React.FC = () => {
   const [start, setStart] = React.useState(false);
 
   const onLoadLogo = (e: any) => {
-    e.target.style.opacity = "0.8";
-    e.target.style.transform = "rotateY(-720deg)";
+    e.target.style.opacity = '0.8';
+    e.target.style.transform = 'rotateY(-720deg)';
   };
 
   if (start) {
