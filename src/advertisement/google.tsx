@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from 'react';
+import styled from 'styled-components';
+import { Adsense } from '@ctrl/react-adsense';
 
 interface GoogleAdProps {
   adClientId: string;
@@ -11,26 +13,23 @@ const GOOGLE_AD = {
   getAdsByGoogle: () => window.adsbygoogle ?? (window.adsbygoogle = []),
 };
 
+const DivShadow = styled.div`
+  background-color: crimson;
+  width: 100%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+`;
+
+const StyledAdsense = styled(Adsense)`
+  display: block;
+  width: 100%;
+  height: 100%;
+`;
+
 const GoogleAd: React.FC<GoogleAdProps> = ({ adClientId, adSlotId, adFormat = 'auto' }) => {
-  const adRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (adRef.current) {
-      GOOGLE_AD.getAdsByGoogle().push({
-        google_ad_client: adClientId,
-        google_ad_slot: adSlotId,
-      });
-    }
-  }, [adClientId, adSlotId]);
-
   return (
-    <div
-      ref={adRef}
-      className={GOOGLE_AD.class}
-      data-ad-client={adClientId}
-      data-ad-slot={adSlotId}
-      data-ad-format={adFormat}
-    />
+    <DivShadow>
+      <StyledAdsense client={adClientId} slot={adSlotId} format="fluid" />
+    </DivShadow>
   );
 };
 

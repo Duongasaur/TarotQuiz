@@ -20,7 +20,7 @@ const glitter = keyframes`
   `;
 
 const StarsWrapper = styled.div`
-  margin-top: 100px;
+  margin-top: 120px;
   font-size: 400px;
   height: 100%;
   overflow: hidden;

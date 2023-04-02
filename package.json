@@ -5,6 +5,7 @@
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
+    "@ctrl/react-adsense": "^1.6.1",
     "@types/styled-components": "5.1.26",
     "react": "18.0.0",
     "react-dom": "18.0.0",
