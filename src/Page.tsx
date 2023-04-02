@@ -1,28 +1,29 @@
-import React, { ReactNode } from "react";
-import styled from "styled-components";
-import Advert from "./advertisement/index";
+import React, { ReactNode } from 'react';
+import styled from 'styled-components';
+import Advert from './advertisement/index';
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Navigate
-} from "react-router-dom";
-import Landing from "./Landing";
-import Results from "./Results";
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
+import Landing from './Landing';
+import Results from './Results';
+import Blog from './blog';
 
 const router = createBrowserRouter([
   {
-    path: "/quiz",
-    element: <Landing />
+    path: '/blog',
+    element: <Blog />,
   },
   {
-    path: "/quiz/results/:cards",
-    element: <Results />
+    path: '/quiz',
+    element: <Landing />,
   },
   {
-    path: "/",
-    element: <Navigate to="/quiz" />
-  }
+    path: '/quiz/results/:cards',
+    element: <Results />,
+  },
+  {
+    path: '/',
+    element: <Navigate to="/quiz" />,
+  },
 ]);
 
 const MainLanding = styled.main`

@@ -1,8 +1,8 @@
-import { Fragment, MutableRefObject, useEffect, useRef, useState } from "react";
-import styled, { keyframes } from "styled-components";
+import { Fragment, MutableRefObject, useEffect, useRef, useState } from 'react';
+import styled, { keyframes } from 'styled-components';
 
 // const BG_COLOUR = "#5749aa";
-const BG_COLOUR = "#3f3a8a";
+const BG_COLOUR = '#3f3a8a';
 const STAR_COUNT = 52;
 const BIG_STAR_INTERVAL = 8;
 
@@ -20,14 +20,14 @@ const glitter = keyframes`
   `;
 
 const StarsWrapper = styled.div`
-  margin-top: 80px;
+  margin-top: 100px;
   font-size: 400px;
   height: 100%;
   overflow: hidden;
   opacity: 0.9;
 
   &:after {
-    content: "";
+    content: '';
     background: ${BG_COLOUR};
     background: linear-gradient(
       0deg,
@@ -54,7 +54,7 @@ const BaseStar = styled.div`
 
   &:before,
   &:after {
-    content: "";
+    content: '';
     width: 100%;
     height: 100%;
     background: ${BG_COLOUR};
@@ -88,7 +88,7 @@ const BigStar = styled(BaseStar)`
   animation: ${glitter} 4s linear 0s infinite normal;
 `;
 
-const defaultRect = document.createElement("div").getBoundingClientRect();
+const defaultRect = document.createElement('div').getBoundingClientRect();
 type DivRef = MutableRefObject<HTMLDivElement | null>;
 const useBoundingClientRect = (): [DivRef, DOMRect] => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
@@ -108,7 +108,7 @@ const getDelay = (index: number) => `${(index * 80) % 2000}ms`;
 const getStyle = (rect: DOMRect, index: number) => ({
   top: getRandomPosition(rect.height - 200),
   left: getRandomPosition(rect.width),
-  animationDelay: getDelay(index)
+  animationDelay: getDelay(index),
 });
 
 const displayBigStar = (index: number) => index % BIG_STAR_INTERVAL === 0;
@@ -118,7 +118,7 @@ export const Constellation = () => {
 
   return (
     <StarsWrapper key="stars-wrap" ref={wrapperRef}>
-      {range(STAR_COUNT).map((index) => (
+      {range(STAR_COUNT).map(index => (
         <Fragment key={index}>
           <BaseStar style={getStyle(rect, index)} children={<StarBottom />} />
           {displayBigStar(index) && (
