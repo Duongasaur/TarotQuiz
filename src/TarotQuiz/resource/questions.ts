@@ -1,4 +1,4 @@
-import { CARDS } from "./cards";
+import { CARDS } from './cards';
 
 export type Question = {
   set: string;
@@ -8,109 +8,117 @@ export type Question = {
 
 export const QUESTIONS: Question[] = [
   {
-    set: "The Ruler",
+    set: 'Leadership',
     variations: [
-      "Do you enjoy taking charge and leading others?",
-      "Do you consider yourself organized and good at decision-making?",
-      "Do you prefer structure and order in your life?"
+      'Do you enjoy taking charge and leading others?',
+      'Do you consider yourself organized and good at decision-making?',
     ],
-    cards: ["The Emperor", "The Hierophant", "Justice", "Temperance"]
+    cards: ['The Emperor', 'The Chariot', 'Judgement'],
   },
   {
-    set: "The Innovator",
+    set: 'Intuition',
     variations: [
-      "Do you thrive on creativity and innovation?",
-      "Do you often think outside the box?",
-      "Are you an early adopter of new technology or trends?"
+      'Do you trust your gut feelings and intuition?',
+      'Do you often find yourself knowing things without knowing how you know?',
     ],
-    cards: ["The Magician", "The Star", "The Tower", "The World"]
+    cards: ['The High Priestess', 'The Moon', 'The Empress'],
   },
   {
-    set: "The Rebel",
+    set: 'Transformation',
     variations: [
-      "Do you often question authority and societal norms?",
-      "Do you seek out unconventional paths in life?",
-      "Are you drawn to rebellion and counterculture?"
+      'Are you comfortable with change and personal growth?',
+      'Do you see challenges as opportunities to transform and evolve?',
     ],
-    cards: ["The Fool", "Death", "The Devil", "The Hanged Man"]
+    cards: ['Death', 'The Tower', 'The World'],
   },
   {
-    set: "The Protector",
+    set: 'Spirituality',
     variations: [
-      "Do you prioritize the well-being of your loved ones?",
-      "Do you often go out of your way to help others?",
-      "Do you find comfort in routine and stability?"
+      'Do you value spiritual growth and personal development?',
+      'Are you drawn to explore the mysteries of life?',
     ],
-    cards: ["The Chariot", "Strength", "The Sun", "The Moon"]
+    cards: ['The Hierophant', 'The Hermit', 'The Star'],
   },
   {
-    set: "The Guide",
+    set: 'Balance',
     variations: [
-      "Do people often seek your advice or guidance?",
-      "Are you drawn to meditation, mindfulness, or self-reflection?",
-      "Do you trust your intuition more than the opinions of others?"
+      'Do you strive for balance and harmony in your life?',
+      'Do you believe that everything has its place and purpose?',
     ],
-    cards: ["The High Priestess", "The Hermit", "Judgement", "The Empress"]
+    cards: ['Justice', 'Temperance', 'The Wheel of Fortune'],
   },
   {
-    set: "The Lover",
+    set: 'Creativity',
     variations: [
-      "Do you express your love and appreciation openly?",
-      "Are you a hopeless romantic?",
-      "Do you enjoy creating beautiful spaces and experiences?"
+      'Do you consider yourself creative and imaginative?',
+      'Do you enjoy expressing yourself through art or other creative outlets?',
     ],
-    cards: ["The Lovers", "Wheel of Fortune", "Justice", "The Hanged Man"]
+    cards: ['The Fool', 'The Magician', 'The Lovers'],
   },
   {
-    set: "The Seeker",
+    set: 'Strength',
     variations: [
-      "Are you always searching for deeper meaning in life?",
-      "Do you enjoy exploring new cultures and spiritual practices?",
-      "Do you embrace personal growth and self-discovery?"
+      'Do you have a strong sense of inner strength and resilience?',
+      'Do you believe that courage comes from within?',
     ],
-    cards: ["The Fool", "The Star", "The Tower", "The Moon"]
+    cards: ['Strength', 'The Sun', 'The Hanged Man'],
   },
   {
-    set: "The Transformer",
+    set: 'Wisdom',
     variations: [
-      "Do you adapt easily to change?",
-      "Are you open to personal transformation and growth?",
-      "Do you believe in reinventing yourself and leaving the past behind?"
+      'Do you value wisdom and learning from life experiences?',
+      'Are you drawn to the pursuit of knowledge and understanding?',
     ],
-    cards: ["Death", "The Devil", "The World", "The Sun"]
+    cards: ['The Hermit', 'The Hierophant', 'The High Priestess'],
   },
   {
-    set: "The Mentor",
+    set: 'Passion',
     variations: [
-      "Do you have a thirst for knowledge and wisdom?",
-      "Do you enjoy sharing your insights with others?",
-      "Do you value learning from the experiences of others?"
+      'Do you live your life with passion and excitement?',
+      'Are you motivated by your desires and ambitions?',
     ],
-    cards: ["The Hierophant", "The Hermit", "The Emperor", "The Empress"]
+    cards: ['The Magician', 'The Lovers', 'The Chariot'],
   },
   {
-    set: "The Champion",
+    set: 'Perseverance',
     variations: [
-      "Do you stay focused on your goals, no matter the obstacles?",
-      "Do you believe in the power of hard work and perseverance?",
-      "Do you see setbacks as opportunities to learn and grow?"
+      'Do you have the ability to persist in the face of adversity?',
+      'Are you determined to overcome challenges and obstacles?',
     ],
-    cards: ["The Chariot", "Strength", "Judgement", "The Magician"]
+    cards: ['Strength', 'The Emperor', 'The Hanged Man'],
   },
   {
-    set: "The Visionary",
+    set: 'Change',
     variations: [
-      "Do you often dream of a better future?",
-      "Do you believe in the power of visualization and manifestation?",
-      "Are you drawn to creative pursuits and self-expression?"
+      'Do you embrace change and view it as a natural part of life?',
+      'Are you able to let go of the past and move forward?',
     ],
-    cards: [
-      "The High Priestess",
-      "The Lovers",
-      "Temperance",
-      "Wheel of Fortune"
-    ]
-  }
+    cards: ['Death', 'The Wheel of Fortune', 'The Tower'],
+  },
+  {
+    set: 'Optimism',
+    variations: [
+      'Do you maintain a positive outlook on life?',
+      'Do you believe in the power of hope and the potential for good in all situations?',
+    ],
+    cards: ['The Sun', 'The Star', 'The World'],
+  },
+  {
+    set: 'Introspection',
+    variations: [
+      'Do you often spend time reflecting on your thoughts and emotions?',
+      'Do you value self-awareness and personal growth?',
+    ],
+    cards: ['The Hermit', 'The Moon', 'Judgement'],
+  },
+  {
+    set: 'Manifestation',
+    variations: [
+      'Do you believe in your ability to manifest your dreams and desires?',
+      'Are you proactive in creating the life you want?',
+    ],
+    cards: ['The Magician', 'The Empress', 'The Fool'],
+  },
 ];
 
 export const SCORES = {
@@ -135,5 +143,5 @@ export const SCORES = {
   [CARDS.THE_MOON]: 0,
   [CARDS.THE_SUN]: 0,
   [CARDS.JUDGEMENT]: 0,
-  [CARDS.THE_WORLD]: 0
+  [CARDS.THE_WORLD]: 0,
 };
